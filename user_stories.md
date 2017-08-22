@@ -22,4 +22,6 @@ I want to start off by loading all the images into containers,
 I then want to make a random kicker, then I want to make a random thing
 that lets people pick.
 
-(users5)
+(users5) This is the guy who hired me
+-the Owners-
+He wants overall total control to add select, change and manipulate what is in the Mall buss
