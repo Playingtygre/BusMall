@@ -82,7 +82,6 @@ function onClick (event){
   var itemIdx = parseInt(event.target.getAttribute('itemIdx'));
   var itemIWant = allItems[itemIdx];
   itemIWant.timesClicked++;
-  makeThreeImages();
   totalClicks++;
   // if i'm at my max clicks, remove the event listeners and show the list
   if (totalClicks === maxClicks) {
@@ -91,6 +90,7 @@ function onClick (event){
       var image = document.getElementById('image-' + (i + 1));
       image.removeEventListener('click', onClick);
     }
+    makeThreeImages();
 
     // when the user is done clicking, list results of the click tracker.
     var list = document.getElementById('list');
@@ -115,3 +115,16 @@ var storeClicks = function() {
   localStorage.setItem('clickCount', JSON.stringify(vote));
   localStorage.setItem('showCount', JSON.stringify(show));
 };
+
+if (localStorage.getItem('clickCount')) {
+  var storedVotes = JSON.parse(localStorage.getItem('clickCount'));
+  for (var i = 0; i < allItems.length; i++) {
+    allItems[i].timesClicked = storedVotes[i];
+  }
+}
+if (localStorage.getItem('showCount')) {
+  var shown = JSON.parse(localStorage.getItem('showCount'));
+  for (var i = 0; i < allItems.length; i++) {
+    allItems[i].timesShown = shown[i];
+  }
+}
