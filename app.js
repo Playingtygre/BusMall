@@ -33,6 +33,9 @@ createItems();
 var thisRound = []; // contains whatever's generated this round
 var lastRound = []; // contains whatever was generated last round
 
+var vote = [];
+var show = [];
+
 // make a function that randomly selects 3 images out of the images we've already created.
 function makeThreeImages (){
   // write a for loop, where each iteration will select a distinct image
@@ -100,5 +103,15 @@ function onClick (event){
       // append the list items to "list"
       list.appendChild(li);
     }
+    for (var k = 0; k < allItems.length; k++) {
+      vote.push(allItems[k].timesClicked);
+      show.push(allItems[k].timesShown);
+    }
   }
-}
+  storeClicks();
+};
+
+var storeClicks = function() {
+  localStorage.setItem('clickCount', JSON.stringify(vote));
+  localStorage.setItem('showCount', JSON.stringify(show));
+};
