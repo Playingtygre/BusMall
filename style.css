@@ -2,6 +2,17 @@ body {
   background-color: pink;
 }
 
-image_url {
-  max-width: 10%;
+img {
+  max-width: 50%;
+}
+
+p {
+background-color:#f49e42;
+font-size: 20px;
+}
+
+#list {
+  list-style:none;
+  letter-spacing: 5p;
+  background-color: #f49e42;
 }
