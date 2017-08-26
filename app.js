@@ -1,6 +1,6 @@
 'use strict';
 
-////this is a click counter////
+////this is a click counter, Max is 25////
 var totalClicks = 0;
 var maxClicks = 3;
 
@@ -13,7 +13,7 @@ function Item (name, filePath, id) {
   this.id = id;
   allItems.push(this);
 }
-
+////array of path, names, and id's/////
 var allItems = [];
 
 var names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
@@ -21,33 +21,37 @@ var names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'ch
 var paths = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg', 'img/bubblegum.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dog-duck.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/pet-sweep.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/tauntaun.jpg', 'img/unicorn.jpg', 'img/usb.gif', 'img/water-can.jpg', 'img/wine-glass.jpg'];
 
 var ids = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg', 'dog-duck.jpg', 'dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png', 'tauntaun.jpg', 'unicorn.jpg', 'usb.gif', 'water-can.jpg', 'wine-glass.jpg'];
-
+// constructorfuction which places name array into path array, and id array/////
 function createItems (){
   for (var i = 0; i < names.length; i++){
     new Item(names[i], paths[i], ids[i]);
   }
 };
-
+// calls create Item array///
 createItems();
+/////thisRoundArray and this lastRoundArray will be used to determine items that have not been seen//
 var thisRound = [];
 var lastRound = [];
+////vote Array will be times clicked, shown array will be number of items shown, name array will used to display both arrays//
 var vote = [];
 var show = [];
-var nameArray = [];
 
+///this nameArray is given to cover//
+var nameArray = [];
+////pusing all items into a chartArray//
 function chartArray(){
   for (var i = 0; i < allItems.length; i ++)
     nameArray.push(allItems[i].name);
 };
 
-
-// make a function that rand
+// make a function that randomizes everything///also push
 function makeThreeImages (){
   for (var i = 1; i < 4; i++) {
     var indexNum = Math.floor(Math.random() * allItems.length);
     if (lastRound.includes(indexNum) || thisRound.includes(indexNum)) {
-      i--; // <---back one iteration
+      i--; //back several images
     } else {
+      ///pushes back a array below if shown//
       thisRound.push(indexNum);
       allItems[indexNum].timesShown++;
       var linkedImage = document.getElementById('image-' + i);
@@ -55,13 +59,14 @@ function makeThreeImages (){
       linkedImage.setAttribute('itemIdx', indexNum);
     }
   }
+  ///array that stores images to prevent repeat////
   lastRound = thisRound;
   thisRound = [];
 };
-
+///calling 3images///
 makeThreeImages();
 console.log(lastRound);
-
+/////runnign thru and iteration of while grabbing and anchoring the html class tag image////
 for (var i = 0; i < document.getElementsByClassName('clickable').length; i++) {
   var image = document.getElementById('image-' + (i + 1));
   image.addEventListener('click', onClick);
@@ -142,7 +147,7 @@ var chart = new Chart (ctx, {
 
     title: {
       display: true,
-      text: 'Some stuff and some junk'
+      text: 'Busmasll'
     },
     scales: {
       yAxes: [{
