@@ -1,7 +1,8 @@
 'use strict';
+
 ////this is a click counter////
 var totalClicks = 0;
-var maxClicks = 5;
+var maxClicks = 3;
 
 ///constructor function of the items, name and URL/////
 function Item (name, filePath, id) {
@@ -12,6 +13,7 @@ function Item (name, filePath, id) {
   this.id = id;
   allItems.push(this);
 }
+
 var allItems = [];
 
 var names = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
@@ -24,7 +26,7 @@ function createItems (){
   for (var i = 0; i < names.length; i++){
     new Item(names[i], paths[i], ids[i]);
   }
-}
+};
 
 createItems();
 var thisRound = [];
@@ -48,14 +50,16 @@ function makeThreeImages (){
   }
   lastRound = thisRound;
   thisRound = [];
-}
+};
+
 makeThreeImages();
+console.log(lastRound);
+
 for (var i = 0; i < document.getElementsByClassName('clickable').length; i++) {
   var image = document.getElementById('image-' + (i + 1));
   image.addEventListener('click', onClick);
 }
 function onClick (event){
-
   var itemIdx = parseInt(event.target.getAttribute('itemIdx'));
   var itemIWant = allItems[itemIdx];
   itemIWant.timesClicked++;
@@ -65,7 +69,6 @@ function onClick (event){
       var image = document.getElementById('image-' + (i + 1));
       image.removeEventListener('click', onClick);
     }
-    makeThreeImages();
     var list = document.getElementById('list');
     for (var j = 0; j < allItems.length; j++) {
       var li = document.createElement('li');
@@ -78,6 +81,7 @@ function onClick (event){
     }
   }
   storeClicks();
+  makeThreeImages();
 };
 
 var storeClicks = function() {
