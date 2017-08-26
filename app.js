@@ -104,7 +104,16 @@ if (localStorage.getItem('showCount')) {
   }
 }
 
-chartArray();
+// var chartArray = [];
+//
+// function pushChartArray() {
+//   for(var d = 0; d < allItems.length; i++) {
+//     chartArray.push(parseInt(allItems[i].vote))
+//   }
+// }
+
+chartdata = [];
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var chart = new Chart (ctx, {
