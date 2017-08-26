@@ -5,3 +5,7 @@ body {
 image_url {
   max-width: 10%;
 }
+
+chart {
+  background-color: red;
+}
