@@ -32,6 +32,7 @@ var thisRound = [];
 var lastRound = [];
 var vote = [];
 var show = [];
+var countedClicked = [];
 
 var nameArray = [];
 function chartArray(){
@@ -104,29 +105,26 @@ if (localStorage.getItem('showCount')) {
   }
 }
 
-// var chartArray = [];
-//
-// function pushChartArray() {
-//   for(var d = 0; d < allItems.length; i++) {
-//     chartArray.push(parseInt(allItems[i].vote))
-//   }
-// }
-
-chartdata = [];
-
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var chart = new Chart (ctx, {
   type: 'bar',
   backgroundColor: 'red',
   data: {
-    labels: nameArray,
+    labels: ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'],
     datasets: [{
       label: '# of Votes',
-      data:vote,
-      backgroundColor:[
+      data: vote,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
       ],
       borderColor: [
+        'red'
       ],
       borderWidth: 5
     }]
