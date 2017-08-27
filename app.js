@@ -1,7 +1,7 @@
 'use strict';
 
 var totalClicks = 0;
-var maxClicks = 3;
+var maxClicks = 25;
 
 function Item (name, filePath, id) {
   this.name = name;
