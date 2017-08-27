@@ -1,7 +1,11 @@
 body {
-  background-color: pink;
+  /*background-color: ;*/
 }
 
 image_url {
   max-width: 10%;
+}
+
+chart {
+  background-color: white;
 }
