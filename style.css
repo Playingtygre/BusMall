@@ -29,3 +29,7 @@ img {
   margin-right: auto;
   align:middle;
 }
+
+#list  {
+  list-style-type: none;
+}
