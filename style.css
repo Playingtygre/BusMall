@@ -1,5 +1,9 @@
 body {
-  /*background-color: ;*/
+  background-color:pink;
+}
+
+h1 {
+  color: blue;
 }
 
 image_url {
@@ -8,4 +12,20 @@ image_url {
 
 chart {
   background-color: white;
+}
+
+#head{
+  text-align: center;
+  color:‎#F9CCCA;
+}
+
+#page {
+  text-align: center ;
+}
+
+img {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  align:middle;
 }
